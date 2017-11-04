@@ -5,9 +5,11 @@ import shoppingListItemReducer from './reducers/shoppingListItemReducer';
 import App from './App';
 import './index.css';
 
-const store = createStore(shoppingListItemReducer);
-
+const store = createStore(shoppingListItemReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); /* code change */
+ 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App store={store} />
+  </Provider>,
   document.getElementById('root')
 );
